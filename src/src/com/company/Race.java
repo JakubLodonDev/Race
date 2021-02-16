@@ -13,8 +13,12 @@ public class Race {
         ArrayList<CarCrash> carCrash = new ArrayList<>();
 
         for (int i = 0; i < 60; i++) {
+            int x=0;
             for (var cars : Cars) {
-                cars.CarPosition = cars.CarPosition + cars.CarSpeed;
+                if(Cars.get(x).Crash.equals(false)) {
+                    cars.CarPosition = cars.CarPosition + cars.CarSpeed;
+                }
+                x++;
             }
             for (int j = 0; j < Cars.size()-1; j++) {
                 if(Cars.get(j).Crash.equals(false)) {
@@ -32,9 +36,13 @@ public class Race {
         }
 
         ArrayList<EndCarPosition> endPosition = new ArrayList<>();
+        int y=0;
 
         for (var car: Cars) {
-            endPosition.add(new EndCarPosition(car.CarBrand, car.CarPosition));
+            if(Cars.get(y).Crash.equals(false)) {
+                endPosition.add(new EndCarPosition(car.CarBrand, car.CarPosition));
+            }
+            y++;
         }
 
         Car winnerCar = null;
