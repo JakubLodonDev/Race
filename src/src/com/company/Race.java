@@ -37,10 +37,16 @@ public class Race {
             endPosition.add(new EndCarPosition(car.CarBrand, car.CarPosition));
         }
 
-        Car winnerCar = Cars.get(0);
+        Car winnerCar = null;
+        for (int i = 0; i < Cars.size(); i++) {
+            if(Cars.get(i).Crash.equals(false))
+            {
+                winnerCar = Cars.get(i);
+            }
+        }
 
-        for (int i = 1; i < Cars.size(); i++) {
-            if(winnerCar.CarPosition < Cars.get(i).CarPosition )
+        for (int i = 0; i < Cars.size(); i++) {
+            if(winnerCar.CarPosition < Cars.get(i).CarPosition && Cars.get(i).Crash.equals(false))
             {
                 winnerCar = Cars.get(i);
             }
