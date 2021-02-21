@@ -23,11 +23,14 @@ public class Race {
             for (int j = 0; j < Cars.size()-1; j++) {
                 if(Cars.get(j).CanMove()) {
                     for (int k = 1 + j; k < Cars.size(); k++) {
-                        if (Cars.get(j).CarPosition == Cars.get(k).CarPosition) {
-                            Crash.add(new Crash(Cars.get(j).CarBrand,Cars.get(k).CarBrand,
-                                    Cars.get(j).CarPosition, true));
-                            Cars.get(j).Crash=true;
-                            Cars.get(k).Crash=true;
+                        var car1 = Cars.get(j);
+                        var car2 = Cars.get(k);
+
+                        if (car1.CarPosition == car2.CarPosition) {
+                            Crash.add(new Crash(car1.CarBrand, car2.CarBrand,
+                                    car1.CarPosition, true));
+                            car1.Crash=true;
+                            car2.Crash=true;
                             break;
                         }
                     }
