@@ -10,23 +10,23 @@ public class Race {
     }
     Score Race()
     {
-        ArrayList<CarCrash> carCrash = new ArrayList<>();
+        ArrayList<Crash> Crash = new ArrayList<>();
 
         for (int i = 0; i < 60; i++) {
             int x=0;
             for (var cars : Cars) {
-                if(Cars.get(x).Crash.equals(false)) {
-                    cars.CarPosition = cars.CarPosition + cars.CarSpeed;
+                if(cars.CanMove()) {
+                    cars.Move();
                 }
                 x++;
             }
             for (int j = 0; j < Cars.size()-1; j++) {
-                if(Cars.get(j).Crash.equals(false)) {
-                    for (int k = 1 + j; k < 4; k++) {
+                if(Cars.get(j).CanMove()) {
+                    for (int k = 1 + j; k < Cars.size(); k++) {
                         if (Cars.get(j).CarPosition == Cars.get(k).CarPosition) {
-                            carCrash.add(new CarCrash(Cars.get(j).CarBrand, true));
+                            Crash.add(new Crash(Cars.get(j).CarBrand,Cars.get(k).CarBrand,
+                                    Cars.get(j).CarPosition, true));
                             Cars.get(j).Crash=true;
-                            carCrash.add(new CarCrash(Cars.get(k).CarBrand, true));
                             Cars.get(k).Crash=true;
                             break;
                         }
@@ -39,7 +39,7 @@ public class Race {
         int y=0;
 
         for (var car: Cars) {
-            if(Cars.get(y).Crash.equals(false)) {
+            if(Cars.get(y).CanMove()) {
                 endPosition.add(new EndCarPosition(car.CarBrand, car.CarPosition));
             }
             y++;
@@ -47,7 +47,7 @@ public class Race {
 
         Car winnerCar = null;
         for (int i = 0; i < Cars.size(); i++) {
-            if(Cars.get(i).Crash.equals(false))
+            if(Cars.get(i).CanMove())
             {
                 winnerCar = Cars.get(i);
             }
@@ -60,6 +60,6 @@ public class Race {
             }
         }
 
-        return new Score(winnerCar.CarBrand, endPosition, carCrash);
+        return new Score(winnerCar.CarBrand, endPosition, Crash);
     }
 }

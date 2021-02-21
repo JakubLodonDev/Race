@@ -6,26 +6,27 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        ArrayList<Car> Car = new ArrayList<>();
+        ArrayList<Car> Cars = new ArrayList<>();
         {
-            Car.add(new Car("Mustang",28,0,false));
-            Car.add(new Car("Porshe",28,0,false));
-            Car.add(new Car("Bentley",25,0,false));
-            Car.add(new Car("Subaru",21,0,false));
+            Cars.add(new Car("Mustang",28,0,false));
+            Cars.add(new Car("Porshe",27,0,false));
+            Cars.add(new Car("Bentley",28,0,false));
+            Cars.add(new Car("Subaru",21,0,false));
         }
 
-        var Start = new Race(Car);
-        var scores = Start.Race();
+        var start = new Race(Cars);
+        var scores = start.Race();
 
-        System.out.println(scores.CarBrand);
+        System.out.println(scores.WinnerCarBrand);
 
         for (var endCarPosition: scores.EndCarPosition)
         {
             System.out.println(endCarPosition.CarBrand + " " + endCarPosition.EndCarPosition);
         }
 
-        for (var carCrash: scores.CarCrash) {
-            System.out.println(carCrash.CarBrand + " is crashed");
+        for (var Crash: scores.Crash) {
+            System.out.println(Crash.FirstCarBrand + " was crashed with "
+                    + Crash.SecendCarBrand +" on "+ Crash.CrashPosition +" meter");
         }
 
         /*for (int i = 0; i < scores.CarCrash.size(); i++) {

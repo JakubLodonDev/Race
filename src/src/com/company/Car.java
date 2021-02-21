@@ -13,7 +13,13 @@ public class Car {
         Crash = crash;
     }
 
-    public Car() {
+    public void Move()
+    {
+        CarPosition= CarPosition + CarSpeed;
+    }
 
+    public boolean CanMove()
+    {
+     return !Crash;
     }
 }

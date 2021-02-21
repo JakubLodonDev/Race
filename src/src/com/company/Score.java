@@ -3,13 +3,13 @@ package com.company;
 import java.util.ArrayList;
 
 public class Score {
-    String CarBrand;
+    String WinnerCarBrand;
     ArrayList<EndCarPosition> EndCarPosition;
-    ArrayList<CarCrash> CarCrash;
+    ArrayList<Crash> Crash;
 
-    public Score(String carBrand, ArrayList<com.company.EndCarPosition> endCarPosition, ArrayList<com.company.CarCrash> carCrash) {
-        CarBrand = carBrand;
+    public Score(String winnerCarBrand, ArrayList<com.company.EndCarPosition> endCarPosition, ArrayList<com.company.Crash> crash) {
+        WinnerCarBrand = winnerCarBrand;
         EndCarPosition = endCarPosition;
-        CarCrash = carCrash;
+        Crash = crash;
     }
 }
