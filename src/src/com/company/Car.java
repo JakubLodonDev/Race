@@ -22,4 +22,9 @@ public class Car {
     {
      return !Crash;
     }
+
+    public void SetIsCrashed()
+    {
+        Crash =true;
+    }
 }

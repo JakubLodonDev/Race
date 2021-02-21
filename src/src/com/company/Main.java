@@ -21,7 +21,8 @@ public class Main {
 
         for (var endCarPosition: scores.EndCarPosition)
         {
-            System.out.println(endCarPosition.CarBrand + " " + endCarPosition.EndCarPosition);
+            System.out.println(endCarPosition.CarBrand + " "
+                    + endCarPosition.EndCarPosition);
         }
 
         for (var Crash: scores.Crash) {

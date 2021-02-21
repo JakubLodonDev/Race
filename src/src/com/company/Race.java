@@ -29,8 +29,7 @@ public class Race {
                         if (car1.CarPosition == car2.CarPosition) {
                             Crash.add(new Crash(car1.CarBrand, car2.CarBrand,
                                     car1.CarPosition, true));
-                            car1.Crash=true;
-                            car2.Crash=true;
+                            car1.SetIsCrashed(); car2.SetIsCrashed();
                             break;
                         }
                     }
@@ -57,9 +56,10 @@ public class Race {
         }
 
         for (int i = 0; i < Cars.size(); i++) {
-            if(winnerCar.CarPosition < Cars.get(i).CarPosition && Cars.get(i).Crash.equals(false))
+            var carCanWin = Cars.get(i);
+            if(winnerCar.CarPosition < carCanWin.CarPosition && carCanWin.CanMove())
             {
-                winnerCar = Cars.get(i);
+                winnerCar = carCanWin;
             }
         }
 

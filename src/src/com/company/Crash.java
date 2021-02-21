@@ -6,7 +6,7 @@ public class Crash{
     Integer CrashPosition;
     Boolean Crash;
 
-    public Crash(String firstCarBrand, String secendCarBrand,Integer crashPosition, Boolean crash) {
+    public Crash(String firstCarBrand, String secendCarBrand, Integer crashPosition, Boolean crash) {
         FirstCarBrand = firstCarBrand;
         SecendCarBrand = secendCarBrand;
         CrashPosition = crashPosition;
